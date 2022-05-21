@@ -1,0 +1,64 @@
+*{
+    font-family: 'Prompt', sans-serif;
+    /* border: 1px black solid; */
+}
+h1{
+    /* font-weight: bold; */
+    font-size: 40px;
+    line-height: 60.48px;
+    text-align: center;
+    color: #3B4C80;
+    padding-bottom: 40px;
+}
+h2{
+    /* font-weight: bold; */
+    font-size: 20px;
+    line-height: 30.24px;
+}
+input{
+    font-size: 20px;
+    line-height: 27.22px;
+    border: solid 1px #3B4C80;
+    /* height: 80px; */
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
+}
+button{
+    display: inline-block;
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    line-height: 30.24px;
+    text-align: center;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+}
+#btn1{
+    border: 1px solid#736EFE;
+    background-color: transparent;
+    color: #736EFE;
+    line-height: 27.22px;
+}
+#btn2{
+    background: linear-gradient(90deg, #5EFCE8 0%, #736EFE 100%);
+    color: #FFF;
+    line-height: 27.22px;
+}
+.block{    
+    position: absolute;
+    display: inline-block;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(40px);
+    border-radius: 10px;
+    padding: 100px;
+    min-height: 80vh;
+}
+img{
+    width: 100%;
+    min-height: 100vh;
+}
