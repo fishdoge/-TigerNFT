@@ -1,37 +1,38 @@
 *{
     font-family: 'Prompt', sans-serif;
-    /* border: 1px black solid; */
     position: relative;
     box-sizing: border-box;
 }
 html,body{
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
+
     text-align: center;
     box-sizing: border-box;
 }
 h1{
-    /* font-weight: bold; */
     font-size: 40px;
-    line-height: 60.48px;
+    line-height: 45px;
     text-align: center;
     color: #3B4C80;
-    padding-bottom: 40px;
+    padding-bottom: 10px;
+    margin-top: 0px;
+    margin-bottom:  0px;
 }
 h2{
-    /* font-weight: bold; */
     font-size: 20px;
     line-height: 30.24px;
     text-align: left;
 }
 input{
     font-size: 20px;
-    line-height: 27.22px;
+    line-height: 25px;
     border: solid 1px #3B4C80;
-    /* height: 80px; */
     width: 100%;
     border-radius: 10px;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
 }
 button{
@@ -48,7 +49,7 @@ button{
 }
 .container{
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url('../assets/background.png');
     background-repeat:no-repeat;
     background-size: cover;
@@ -68,14 +69,22 @@ button{
 }
 .change-page{
     display: inline-block;
-    top: 20%;
+    margin-top: 0px;
+    width: 60%;
+}
+.change-page button{
+    margin-top: 0px;
+    margin-bottom: 20px;
 }
 .page-btn{
-    background: linear-gradient(90deg, #5EFCE8 0%, #736EFE 100%);
-    color: #FFF;
+    
+    background: rgba(255, 255, 255, 0.8);    
+    color: #736EFE;
     line-height: 27.22px;
-    width: 20%;
-    margin: 0 10px;
+    width: 17vh;
+    margin-left: 5px;
+    margin-right: 5px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
 }
 .block{    
     position: relative;
@@ -84,9 +93,10 @@ button{
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(40px);
     border-radius: 10px;
-    padding: 50px;
-    height: 90vh;
+    padding: 40px 50px;
+    min-height: 50vh;
     text-align: center;
+    min-width: 40%;    
 }
 .field2{
     width: 48%;
@@ -99,21 +109,40 @@ button{
     width: 100%;
 }
 
-@media screen and (max-width:1024px){
-    .container{
-        max-height: 1300px;
+button:active{
+    opacity: 0.5;
+}
+
+@media screen and ( max-width:1441px ){
+    h1{
+        font-size: 30px;
+        line-height: 45px;
+        padding-bottom: 20px;
     }
-    .change-page{
-        top:15%;
+    h2{
+        font-size: 18px;
     }
-    .page-btn{
-        font-size: 15px;
-        width: 20%;
-        margin: 0 5px;
+    button{
+        font-size: 18px;
+    }
+    input{
+        font-size: 18px;
         line-height: 20px;
+        padding: 15px;
     }
 }
-@media screen and (max-width:768px){
+@media screen and ( max-width:901px ){
+    .field2{
+        width: 100%
+    }
+    .field3{
+        width: 100%        
+    }
+    .field4{
+        width: 100%        
+    }
+}
+@media screen and ( max-width:768px ){
     h1{
         font-size: 30px;
     }
@@ -141,5 +170,37 @@ button{
         width: 20%;
         margin: 0 5px;
         line-height: 20px;
+    }
+}
+
+@media screen and ( max-width:426px ){
+    h1{
+        font-size: 25px;
+    }
+    .block{
+        width: 90vw;
+        padding: 5vw;
+    }
+    .page-btn{
+        width: 100%;
+    }
+}
+@media screen and ( min-width:1921px ){
+    h1{
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        font-size: 45px;
+    }
+    h2{
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+    }
+    button{
+        margin-top: 2vh;
+    }
+    .block{
+        margin-top: 12vh;
+        min-height: 60vh;
+        max-width: 90vh;
     }
 }
