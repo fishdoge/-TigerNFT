@@ -36,7 +36,7 @@ async function CheckTigerCoinBalance(){
     let TigerAmount  = await Tiger.methods.balanceOf(coinbase).call();
     TigerAmount = web3.utils.fromWei(TigerAmount, 'ether');
     console.log(TigerAmount);
-    $("#TgcAmounts").text(TigerAmount);
+    $("#TgcAmounts").val(TigerAmount);
 }
 
 
