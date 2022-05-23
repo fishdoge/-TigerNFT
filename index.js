@@ -11,7 +11,7 @@ window.onload=goDifferentPage("login")
 
 function common(){
     head.innerHTML="Token Claim Dashboard"
-    connect.innerHTML="Disconnect Wallet"
+    //connect.innerHTML="Disconnect Wallet"
     token.style.display="inline-block"
     sec2.display="inline-block"
     sec3.display="inline-block"
@@ -56,12 +56,12 @@ function goDifferentPage(page){
             break;
         case "sec4":
             common()
-            connect.innerHTML="Disconnect Wallet"
+            //connect.innerHTML="Disconnect Wallet"
             token.innerHTML="Claim Tokens"
             head.innerHTML="AirDrop"
             sec2.display="none"
             sec3.display="none"
             sec4.display="inline-block"
-            break;          
+            break;
     }
 }

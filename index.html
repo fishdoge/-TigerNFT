@@ -10,14 +10,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.0/web3.min.js" integrity="sha512-C63V0mFzwl8KV2fRz0QJNKX0d9877urOLSUq5WUq8nUOhDl69hKdGr9mAvl57k47GNjqEMAtiufsvDnk7xs8+w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
 <body>
+    <script>
+        let coinbase;
+        let web3;
+		if (window.ethereum) {
+			web3 = new Web3(window.ethereum);
+		} else {
+				// Code for HttpProvider remains unchanged
+		}
+    </script>
     <div class="container">
         <div class="block">
             <h1 class="heading">Token Claim Dashboard</h1>
             <div class="field1">
                 <h2 id="input1-heading ">Wallet Address</h2>
-                <input id="input1" placeholder="Your address" type="text">
+                <input id="input1" placeholder="0x." type="text">
+            </div>
+            <div class="field1">
+                <h2 id="input1-heading ">Tiger Coin Amount</h2>
+                <input id="TgcAmounts" placeholder="TGC amount" type="text">
             </div>
             <div class="field2">
                 <h2 id="input2-heading">Claimable Now</h2>
@@ -33,7 +48,7 @@
             </div>
             <br>
             <button id="btn1">NFT Holder Claim Tokens</button><br>
-            <button id="btn2" onclick="">Connect Wallet</button><br>
+            <button id="btn2" onclick="login_In_button()">Connect Wallet</button><br>
             <div class="change-page">
                 <button class="page-btn" onclick="goDifferentPage('sec1')">Page1</button>
                 <button class="page-btn" onclick="goDifferentPage('sec2')">Page2</button>
@@ -43,5 +58,7 @@
         </div>
     </div>
     <script src="index.js"></script>
+    <script src="web3/ABI.js"></script>
+    <script src="web3/index.js"></script>
 </body>
 </html>
