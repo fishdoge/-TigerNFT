@@ -48,6 +48,7 @@ async function setNFT_ABI(){
     }
     Tiger = new web3.eth.Contract(TigerABI,Tiger_address);
 
+    await Time();
     await CheckTigerCoinBalance();
 
 }
@@ -58,6 +59,24 @@ setNFT_ABI();
 
 //return web3 view function
 
+async function Time(){
+    let PastTime = await Tiger.methods.checkTime().call();
+
+
+    PastTime =  (86400 * 30) -  (PastTime % (86400 * 30));
+
+
+    let PastDays = Math.trunc(PastTime/86400);
+
+    let Pasthour =  Math.trunc((PastTime % 86400) / 3600);
+
+    let Pastmin =  Math.trunc(((PastTime % 86400) % 3600)/60);
+    console.log((PastTime % 86400));
+
+    console.log(PastDays +" 天 " + Pasthour + " 小時 " + Pastmin +" 分鐘 " );
+
+    $("#input3").val(PastDays +" 天 " + Pasthour + " 小時 " + Pastmin +" 分鐘 ");
+}
 
 async function AirdropCheck(address){
     let value = await Tiger.methods.airdrop_Check(address).call();
@@ -77,6 +96,8 @@ async function TigerNFTClaimCheck(address){
 
     return value;
 }
+
+
 
 
 

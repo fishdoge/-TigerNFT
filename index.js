@@ -9,7 +9,7 @@ let sec4=document.querySelector('.field4').style;
 window.onload=goDifferentPage("login")
 
 function common(){
-    head.innerHTML="Token Claim Dashboard"
+    //head.innerHTML="Token Claim Dashboard"
     //connect.innerHTML="Disconnect Wallet"
     token.style.display="inline-block"
     sec2.display="inline-block"
