@@ -62,7 +62,6 @@ setNFT_ABI();
 async function Time(){
     let PastTime = await Tiger.methods.checkTime().call();
 
-
     PastTime =  (86400 * 30) -  (PastTime % (86400 * 30));
 
 
@@ -95,6 +94,25 @@ async function TigerNFTClaimCheck(address){
     let value = await Tiger.methods.Check_Tiger_Token(address).call();
 
     return value;
+}
+
+async function CheckModWithDraw(address){
+    let value = await Tiger.methods.check_Mod_withDraw(address).call();
+
+    return value;
+}
+
+async function CkeckDAO(){
+    let value = await Tiger.methods.Check_Dao_withDraw_Amount().call();
+    value = web3.utils.fromWei(value, 'ether');
+    return value;
+}
+
+
+async function CheckModAddress(address){
+    let check = await Tiger.methods.Tiger_MOD(address).call();
+
+    return check;
 }
 
 

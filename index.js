@@ -28,7 +28,7 @@ function common(){
 }
 
 
-function goDifferentPage(page){
+async function goDifferentPage(page){
     switch(page){
         case "login":
             token.style.display="none"
@@ -37,21 +37,35 @@ function goDifferentPage(page){
             sec4.display="none"
             break;
         case "sec1":
-            common()
+            common();
+            head.innerHTML = "NFT holder"
+            let claimvalue = parseInt(await NinjaNFTClaimCheck(coinbase))+ parseInt(await TigerNFTClaimCheck(coinbase));
+            $("#input2").val(claimvalue);
             token.innerHTML="NFT Holder Claim Tokens"
             break;
         case "sec2":
-            common()
-            token.innerHTML="MOD Claim Tokens"
+            common();
+            head.innerHTML = "MOD"
+            if(!CheckModAddress){
+                token.innerHTML = "You are not the MOD";
+            }else{
+                token.innerHTML="MOD Claim Token";
+            }
+            $("#input2").val(await CheckModWithDraw(coinbase));
+
             break;
         case "sec3":
-            common()
-            token.innerHTML="DAO Foundation Claim Tokens"
+            common();
+            head.innerHTML="DAO Foundation"
+            $("#input2").val(await CkeckDAO());
+            token.innerHTML="DAO Foundation Claim Token"
             break;
         case "sec4":
-            common()
+            common();
+            await AirdropCheck(coinbase);
             //connect.innerHTML="Disconnect Wallet"
-            token.innerHTML="Claim Tokens"
+            $("#input4").val(await AirdropCheck(coinbase));
+            token.innerHTML="Claim Token"
             head.innerHTML="AirDrop"
             sec2.display="none"
             sec3.display="none"
