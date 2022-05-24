@@ -46,8 +46,9 @@ async function goDifferentPage(page){
         case "sec2":
             common();
             head.innerHTML = "MOD"
-            if(!CheckModAddress){
+            if(! await CheckModAddress(coinbase)){
                 token.innerHTML = "You are not the MOD";
+                break;
             }else{
                 token.innerHTML="MOD Claim Token";
             }
