@@ -42,6 +42,10 @@ async function goDifferentPage(page){
             let claimvalue = parseInt(await NinjaNFTClaimCheck(coinbase))+ parseInt(await TigerNFTClaimCheck(coinbase));
             $("#input2").val(claimvalue);
             token.innerHTML="NFT Holder Claim Tokens"
+
+            btn1.onclick = async function test(){
+               await NFTHolderClaim();
+            }
             break;
         case "sec2":
             common();
@@ -54,12 +58,22 @@ async function goDifferentPage(page){
             }
             $("#input2").val(await CheckModWithDraw(coinbase));
 
+
+            btn1.onclick = async function test(){
+                await ModwithDraw();
+             }
+
+
             break;
         case "sec3":
             common();
             head.innerHTML="DAO Foundation"
             $("#input2").val(await CkeckDAO());
             token.innerHTML="DAO Foundation Claim Token"
+
+            btn1.onclick = async function DAO(){
+                await DaoClaim();
+            }
             break;
         case "sec4":
             common();
@@ -71,6 +85,10 @@ async function goDifferentPage(page){
             sec2.display="none"
             sec3.display="none"
             sec4.display="inline-block"
+
+            btn1.onclick = async function Air(){
+                await ClaimAirdrop();
+            }
             break;
     }
 }

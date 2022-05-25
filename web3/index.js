@@ -121,5 +121,59 @@ async function CheckModAddress(address){
 
 //web3 excute function
 
+async function NFTHolderClaim(){
+
+    if(await NinjaNFTClaimCheck(coinbase) == 0 && await TigerNFTClaimCheck(coinbase) == 0 ){
+        alert("你沒有東西可以提領");
+        return;
+    }
+
+    await Tiger.methods.ClaimTigerToken().send({from:coinbase});
+
+}
+
+async function ModwithDraw(){
+
+    if(await CheckModWithDraw(coinbase) == 0 ){
+        alert("目前不能提領");
+        return;
+    }
+
+    await Tiger.methods.Mod_withDraw().send({from:coinbase})
+}
+
+async function DaoClaim(){
+    if(await CkeckDAO() == 0){
+
+        return;
+    }
+
+    if(coinbase == '0x8c30f38C9c710AAec22D8E7A265Cc7B306167CD5'){
+        await Tiger.methods.Dao_withDraw().send({from:coinbase});
+    }else{
+        alert("You are not the DAO owner");
+    }
+
+}
+
+
+async function ClaimAirdrop(){
+    let valse = await AirdropCheck(coinbase);
+
+    if(valse == 0){
+        alert("nothing th claim");
+    }
+
+    await Tiger.methods.Airdrop().send({from:coinbase});
+}
+
+
+
+
+async function changebutton(){
+    btn1.onclick = async function test(){
+        console.log("AAA");
+    }
+}
 
 
