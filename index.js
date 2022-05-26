@@ -39,9 +39,10 @@ async function goDifferentPage(page){
         case "sec1":
             common();
             head.innerHTML = "NFT holder"
+            token.innerHTML="NFT Holder Claim Tokens"
             let claimvalue = parseInt(await NinjaNFTClaimCheck(coinbase))+ parseInt(await TigerNFTClaimCheck(coinbase));
             $("#input2").val(claimvalue);
-            token.innerHTML="NFT Holder Claim Tokens"
+
 
             btn1.onclick = async function test(){
                await NFTHolderClaim();
@@ -50,13 +51,16 @@ async function goDifferentPage(page){
         case "sec2":
             common();
             head.innerHTML = "MOD"
+            token.innerHTML="MOD Claim Token";
+            $("#input2").val("0");
+
             if(! await CheckModAddress(coinbase)){
                 token.innerHTML = "You are not the MOD";
                 break;
             }else{
-                token.innerHTML="MOD Claim Token";
+                $("#input2").val(await CheckModWithDraw(coinbase));
             }
-            $("#input2").val(await CheckModWithDraw(coinbase));
+
 
 
             btn1.onclick = async function test(){
@@ -68,8 +72,10 @@ async function goDifferentPage(page){
         case "sec3":
             common();
             head.innerHTML="DAO Foundation"
-            $("#input2").val(await CkeckDAO());
             token.innerHTML="DAO Foundation Claim Token"
+
+            $("#input2").val(await CkeckDAO());
+
 
             btn1.onclick = async function DAO(){
                 await DaoClaim();
@@ -77,15 +83,16 @@ async function goDifferentPage(page){
             break;
         case "sec4":
             common();
-            await AirdropCheck(coinbase);
+
             //connect.innerHTML="Disconnect Wallet"
-            $("#input4").val(await AirdropCheck(coinbase));
+
             token.innerHTML="Claim Token"
             head.innerHTML="AirDrop"
             sec2.display="none"
             sec3.display="none"
             sec4.display="inline-block"
-
+            await AirdropCheck(coinbase);
+            $("#input4").val(await AirdropCheck(coinbase));
             btn1.onclick = async function Air(){
                 await ClaimAirdrop();
             }
