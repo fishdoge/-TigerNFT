@@ -3,10 +3,13 @@
 const Tiger_address = "0xF07e42D0Fd586cc04B9abFE72dED7aa33f239d6d";
 //const Tiger_address = "0xeC92EA370688006618052B92921d80d9A2a46bfC"//lcoal
 let Tiger;
+let TigerNFT;
+const TigerNFTaddress = "0xfA911691D03DEe5edd8C1B7EF6a0Acb1Facf392E";
+const NinjaNFTaddress = "0xfA911691D03DEe5edd8C1B7EF6a0Acb1Facf392E";
 
 async function login_In_button(){
     await ethereum.request({ method: 'eth_requestAccounts' });
-    window.location.reload();
+
 }
 
 async function setCollent(){
@@ -48,9 +51,14 @@ async function setNFT_ABI(){
         return;
     }
     Tiger = new web3.eth.Contract(TigerABI,Tiger_address);
+    TigerNFT = new  web3.eth.Contract(TigetNFTABI,NinjaNFTaddress);
 
     await Time();
     await CheckTigerCoinBalance();
+
+    $("#TigerBal").text(await TigerNFTBalance(coinbase));
+    $("#NinjaBal").text(await TigerNFTBalance(coinbase));
+    NinjaBal
 
 }
 
@@ -117,6 +125,13 @@ async function CheckModAddress(address){
 }
 
 
+async function TigerNFTBalance(address){
+    let cjeck = await TigerNFT.methods.balanceOf(address).call();
+
+    return cjeck;
+}
+
+
 
 
 
@@ -131,6 +146,8 @@ async function NFTHolderClaim(){
 
     await Tiger.methods.ClaimTigerToken().send({from:coinbase});
 
+    window.location.reload();
+
 }
 
 async function ModwithDraw(){
@@ -141,6 +158,8 @@ async function ModwithDraw(){
     }
 
     await Tiger.methods.Mod_withDraw().send({from:coinbase})
+
+    window.location.reload();
 }
 
 async function DaoClaim(){
@@ -155,6 +174,9 @@ async function DaoClaim(){
         alert("You are not the DAO owner");
     }
 
+
+    window.location.reload();
+
 }
 
 
@@ -166,7 +188,11 @@ async function ClaimAirdrop(){
     }
 
     await Tiger.methods.Airdrop().send({from:coinbase});
+
+    window.location.reload();
 }
+
+
 
 
 
