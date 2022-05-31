@@ -206,6 +206,25 @@ const TigerABI = [
 		"inputs": [
 			{
 				"internalType": "address",
+				"name": "mod",
+				"type": "address"
+			}
+		],
+		"name": "MODtimer",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
 				"name": "",
 				"type": "address"
 			}
@@ -704,6 +723,24 @@ const TigerABI = [
 	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "ninja",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "Tigers",
+				"type": "address"
+			}
+		],
+		"name": "setNftContract",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "uint256",
 				"name": "Total",
 				"type": "uint256"
@@ -736,24 +773,6 @@ const TigerABI = [
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "ninja",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "Tigers",
-				"type": "address"
-			}
-		],
-		"name": "testNinja",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{

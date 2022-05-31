@@ -1,20 +1,23 @@
 
 
-const Tiger_address = "0xF07e42D0Fd586cc04B9abFE72dED7aa33f239d6d";
-//const Tiger_address = "0xeC92EA370688006618052B92921d80d9A2a46bfC"//lcoal
+//const Tiger_address = "0xF07e42D0Fd586cc04B9abFE72dED7aa33f239d6d";
+const Tiger_address = "0x1ed9C88fD0d7a45FB24Ed53CF8913efb106cD318"//lcoal
 let Tiger;
 let TigerNFT;
 let NinjaNFT;
-const TigerNFTaddress = "0xfA911691D03DEe5edd8C1B7EF6a0Acb1Facf392E";
-const NinjaNFTaddress = "0xfA911691D03DEe5edd8C1B7EF6a0Acb1Facf392E";
+const TigerNFTaddress = "0x500D80B13DaD4cDF247cc355081501762cD05B24";//test
+const NinjaNFTaddress = "0x500D80B13DaD4cDF247cc355081501762cD05B24";
+
+// const TigerNFTaddress = "0x2f224AE9323f5dF323d2A079833edA5C891D1510"; // true
+// const NinjaNFTaddress = "0x3d6ab55fB262f786ba1e9d1172657FB2d462F1f8";
 
 async function login_In_button(){
     await ethereum.request({ method: 'eth_requestAccounts' });
-
+    window.location.reload();
 }
 
 async function setCollent(){
-    let account = await web3.eth.getAccounts();
+    let account = await ethereum.request({ method: 'eth_requestAccounts' });
 
     coinbase = account[0];
 
@@ -85,6 +88,31 @@ async function Time(){
     console.log(PastDays +" 天 " + Pasthour + " 小時 " + Pastmin +" 分鐘 " );
 
     $("#input3").val(PastDays +" 天 " + Pasthour + " 小時 " + Pastmin +" 分鐘 ");
+}
+
+async function ModClaimTime(){
+
+    if(await CheckModAddress(coinbase)){
+    let modTime = await Tiger.methods.MODtimer(coinbase).call();
+
+    modTime =  (86400 * 30) -  (modTime % (86400 * 30));
+
+
+    let PastDays = Math.trunc(modTime/86400);
+
+    let Pasthour =  Math.trunc((modTime % 86400) / 3600);
+
+    let Pastmin =  Math.trunc(((modTime % 86400) % 3600)/60);
+    console.log((modTime % 86400));
+
+    console.log(PastDays +" 天 " + Pasthour + " 小時 " + Pastmin +" 分鐘 " );
+
+    $("#input3").val(PastDays +" 天 " + Pasthour + " 小時 " + Pastmin +" 分鐘 ");
+
+    }else{
+        $("#input3").val("0");
+    }
+
 }
 
 async function AirdropCheck(address){
@@ -202,14 +230,5 @@ async function ClaimAirdrop(){
 }
 
 
-
-
-
-
-async function changebutton(){
-    btn1.onclick = async function test(){
-        console.log("AAA");
-    }
-}
 
 

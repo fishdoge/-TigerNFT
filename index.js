@@ -42,7 +42,7 @@ async function goDifferentPage(page){
             token.innerHTML="NFT Holder Claim Tokens"
             let claimvalue = parseInt(await NinjaNFTClaimCheck(coinbase))+ parseInt(await TigerNFTClaimCheck(coinbase));
             $("#input2").val(claimvalue);
-
+            Time();
 
             btn1.onclick = async function test(){
                await NFTHolderClaim();
@@ -56,9 +56,11 @@ async function goDifferentPage(page){
 
             if(! await CheckModAddress(coinbase)){
                 token.innerHTML = "You are not the MOD";
+                ModClaimTime();
                 break;
             }else{
                 $("#input2").val(await CheckModWithDraw(coinbase));
+                ModClaimTime();
             }
 
 
@@ -75,7 +77,7 @@ async function goDifferentPage(page){
             token.innerHTML="DAO Foundation Claim Token"
 
             $("#input2").val(await CkeckDAO());
-
+            Time();
 
             btn1.onclick = async function DAO(){
                 await DaoClaim();
